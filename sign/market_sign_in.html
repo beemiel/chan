@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css부터 시작하는 이유는 해당 파일이 있는 위치에서 경로가 시작하기 때문에 -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css">  -->
+
+
+    <title>Title</title>
+</head>
+
+
+<style>
+body {
+  padding-top: 56px;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.navbar-default .navbar-nav > li > a { /* 네비게이션 리스트 글씨 색상 */
+    color: blueviolet;
+}
+
+.navbar-default { /* 배경색상 */
+    background-color: #ffffff;
+    border-color: #000000;
+}
+
+
+
+
+
+</style>
+
+
+
+
+<body>
+
+
+      <!-- Navigation -->
+  <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light fixed-top"> -->
+  <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-default fixed-top"> -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-default fixed-top">
+          <div class="container">
+      
+            <!-- <a class="navbar-brand " href="market_index.html">웹</a> -->
+            <h1>
+              
+              <a class="navbar-brand" href="../main/market_index.php">
+                <!-- <img src="https://i.postimg.cc/SKZ5CbKQ/logo.png" alt="찬" style="max-width:50px; max-height:50px;"/> -->
+                <img src="https://i.postimg.cc/9MLNBgqc/logo3.png" alt="찬" style="max-width:auto; max-height:40px;"/>
+      
+              </a>
+            </h1>
+      
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item" >
+      
+                  <?php 
+                    if($_SESSION['name'] != null){ //세션에 저장된 정보가 있으면 안보이게 처리
+                      // echo $_SESSION["name"];
+                      // echo '<a class="nav-link" style="display:none" href="logout.php">ㅁㅁㅁ<span></span></a>';
+                    } else if($_SESSION['name'] == null){
+                      echo '<a class="nav-link" href="../sign/market_sign_up.html"><span>회원가입</span></a>';
+                    }
+                  ?>
+      
+      
+      
+                  <!-- <a class="nav-link" href="market_sign_up.html">회원가입</a> -->
+                </li>
+                <li class="nav-item">
+      
+                  <?php 
+                    if($_SESSION['name'] != null){ //세션에 저장된 정보가 있으면 안보이게 처리
+                    } else if($_SESSION['name'] == null){
+                      echo '<a class="nav-link" href="../sign/market_sign_in.html"><span>로그인</span></a>';
+                    }
+                  ?>
+      
+      
+      
+      
+      
+                  <!-- <a class="nav-link" href="market_sign_in.html">로그인</a> -->
+                </li>
+      
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    고객센터
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                    <a class="dropdown-item" href="portfolio-1-col.html">공지사항</a>
+                    <a class="dropdown-item" href="portfolio-2-col.html">자주 하는 질문</a>
+                    <a class="dropdown-item" href="portfolio-3-col.html">1:1 문의</a>
+                    <a class="dropdown-item" href="portfolio-4-col.html">상품제안</a>
+                  </div>
+                </li> -->
+      
+      
+                <li class="nav-item dropdown" id="mypage">
+                  <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ㅇㅇㅇ님
+                  </a> -->
+      
+                  <?php 
+                    if($_SESSION['name'] != null){ //세션에 저장된 정보가 있으면 보이게 처리
+                      echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['name'].'님</a>';
+                    } else if($_SESSION['name'] == null){
+                    }
+                  ?>
+                    
+      
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="blog-home-1.html">주문내역</a>
+                    <a class="dropdown-item" href="blog-home-2.html">늘 사는 것</a>
+                    <a class="dropdown-item" href="blog-home-2.html">관심 상품</a>
+                    <a class="dropdown-item" href="blog-home-2.html">개인 정보 수정</a>
+                    <a class="dropdown-item" href="./logout.php">로그아웃</a>
+                  </div>
+                </li>
+      
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    고객센터
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+      
+      
+      
+      
+                    <form method="get" action="../board/list.php" id="sc1">
+                      <a  class="dropdown-item" href="javascript:sc1.submit();">공지사항</a>
+                      <input type="hidden"  name="board" value="notice">
+                    </form>
+      
+                    <form method="get" action="../board/list.php" id="sc2">
+                      <a  class="dropdown-item" href="javascript:sc2.submit();">1:1 문의</a>
+                      <input type="hidden"  name="board" value="question">
+                    </form>
+      
+                    <form method="get" action="../board/list.php" id="sc3">
+                      <a  class="dropdown-item" href="javascript:sc3.submit();">상품제안</a>
+                      <input type="hidden"  name="board" value="suggestion">
+                    </form>
+                    <!-- <a class="dropdown-item" href="./board/list.php">공지사항</a> -->
+      
+      
+      
+      
+      
+      
+                    <!-- <a class="dropdown-item" href="portfolio-3-col.html">1:1 문의</a>
+                    <a class="dropdown-item" href="portfolio-4-col.html">상품제안</a> -->
+                  </div>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link" href="../goods/goods_cart.php">장바구니&nbsp;<span class="badge badge-pill badge-warning">0</span></a>
+                </li>
+      
+               
+                
+                <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other Pages
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+                    <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+                    <a class="dropdown-item" href="faq.html">FAQ</a>
+                    <a class="dropdown-item" href="404.html">404</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                  </div>
+                </li> -->
+      
+      
+              </ul>
+            </div>
+          </div>
+        </nav>
+      
+      
+      <!-- 검색 -->
+      <!-- <button type="submit" ~ 이란 이 번튼을 눌렀을때 폼태그에 저장된 내용들이 서버로 보내진다는 말 -->
+      <!-- <div class="rightdiv"> 
+          <form class="form-inline my-2 my-lg-0" >
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>  
+      </div> -->
+      
+      <br>
+      <br>
+      
+      <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light nav-justified"> -->
+          <div class="container">
+          <ul class="nav nav-justified navbar-default">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle border-right" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    전체 카테고리
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+      
+                    <!-- <a class="dropdown-item" name="category" value="국/찌개/탕" href="./goods/goods__list.php">국/찌개/탕</a> -->
+      
+                    
+                    <!-- 제품 리스트로 가는 get에서 값을 넣어주기 위해 자바 스크립트 사용 -->
+                    <form method="get" action="../goods/goods__list.php" id="myForm">
+                      <a  class="dropdown-item" href="javascript:myForm.submit();">국/찌개/탕</a>
+                      <input type="hidden" id="gameToken" name="category" value="001">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm2">
+                      <a  class="dropdown-item" href="javascript:myForm2.submit();">마른반찬</a>
+                      <input type="hidden" id="gameToken" name="category" value="002">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm3">
+                      <a  class="dropdown-item" href="javascript:myForm3.submit();">무침</a>
+                      <input type="hidden" id="gameToken" name="category" value="003">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm4">
+                      <a  class="dropdown-item" href="javascript:myForm4.submit();">볶음</a>
+                      <input type="hidden" id="gameToken" name="category" value="004">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm5">
+                      <a  class="dropdown-item" href="javascript:myForm5.submit();">조림</a>
+                      <input type="hidden" id="gameToken" name="category" value="005">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm6">
+                      <a  class="dropdown-item" href="javascript:myForm6.submit();">전/생선</a>
+                      <input type="hidden" id="gameToken" name="category" value="006">
+                    </form>
+      
+                    <form method="get" action="../goods/goods__list.php" id="myForm7">
+                      <a  class="dropdown-item" href="javascript:myForm7.submit();">김치/절임/젓갈</a>
+                      <input type="hidden" id="gameToken" name="category" value="007">
+                    </form>
+                    
+                    
+                    
+                    <!-- <a class="dropdown-item" href="./goods/goods__list.php">김치/절임/젓갈</a>
+                    <a class="dropdown-item" href="./goods/goods__list.php">마른반찬</a>
+                    <a class="dropdown-item" href="./goods/goods__list.php">무침</a>
+                    <a class="dropdown-item" href="./goods/goods__list.php">볶음</a>
+                    <a class="dropdown-item" href="./goods/goods__list.php">조림</a>
+                    <a class="dropdown-item" href="./goods/goods__list.php">전/생선</a> -->
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link border-right" href="#">신상품&nbsp;<span class="badge badge-primary">New</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link border-right" href="#">베스트</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link disabled" href="#">알뜰쇼핑 or 이벤트</a>
+              </li>
+              <!-- <button type="submit" ~ 이란 이 번튼을 눌렀을때 폼태그에 저장된 내용들이 서버로 보내진다는 말 -->
+               <form class="form-inline my-2 my-lg-0" role="form" action="../goods/search.php" method="get">
+                   <input class="form-control mr-sm-2" name="product" type="search" placeholder="내용을 입력하세요" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+                </form>
+           </ul>
+      
+          </div>
+      <!-- </nav> -->
+
+
+<hr>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+  <div>
+    <form class="form-signin text-center" style="width: 300px; margin-left: 40%" method="post" action="market_sign_in.php">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="이메일 주소" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" name="autoLogin" value="remember-me" onclick="warning()">로그인 유지
+        </label>
+      </div>
+      <button class="btn btn-lg btn-outline-primary btn-block" type="submit" style="margin-top: 30px;">로그인</button>
+
+      <button class="btn btn-lg btn-outline-secondary btn-block" 
+      type="button"  onclick="location.href='market_sign_up.html'">회원가입</button>
+
+    </form>
+  </div>
+
+
+  <script>
+  
+    function warning(){
+      alert("로그인 유지를 선택하시면 다른 사용자가 회원님의 정보를 볼 수도 있습니다.");
+
+    }
+  
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer --> 
+  <hr style="margin-top: 100px;">
+  <footer class="page-footer font-small stylish-color-dark pt-4"> 
+    <!-- Footer Links --> 
+    <div class="container text-center text-md-left"> 
+      <!-- Grid row --> 
+      <div class="row"> 
+        <!-- Grid column --> 
+        <div class="col-md-4 mx-auto"> 
+          <!-- Content --> 
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5> 
+          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+        </div> 
+        <!-- Grid column --> 
+        <hr class="clearfix w-100 d-md-none"> 
+        <!-- Grid column --> 
+        <div class="col-md-2 mx-auto"> 
+          <!-- Links --> 
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5> 
+          <ul class="list-unstyled"> 
+            <li> 
+              <a href="#">Link 1</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 2</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 3</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 4</a> 
+            </li> 
+          </ul> 
+        </div> 
+        <!-- Grid column --> 
+        <hr class="clearfix w-100 d-md-none"> 
+        <!-- Grid column --> 
+        <div class="col-md-2 mx-auto"> 
+          <!-- Links --> 
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5> 
+          <ul class="list-unstyled"> 
+            <li> 
+              <a href="#">Link 1</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 2</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 3</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 4</a> 
+            </li> 
+          </ul> 
+        </div> 
+        <!-- Grid column --> 
+        <hr class="clearfix w-100 d-md-none"> 
+        <!-- Grid column --> 
+        <div class="col-md-2 mx-auto"> 
+          <!-- Links --> 
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5> 
+          <ul class="list-unstyled"> 
+            <li> 
+              <a href="#">Link 1</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 2</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 3</a> 
+            </li> 
+            <li> 
+              <a href="#">Link 4</a> 
+            </li> 
+          </ul> 
+        </div> 
+        <!-- Grid column --> 
+      </div> 
+      <!-- Grid row --> 
+    </div> 
+    <!-- Footer Links --> 
+    <!-- Copyright --> 
+    <div class="footer-copyright text-center py-3">© 2019 Copyright
+    </div> 
+    <!-- Copyright --> 
+  </footer>
+
+
+
+
+    <!-- 아이콘 -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

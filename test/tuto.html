@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>튜토리얼</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- 내가 만든 외부 스타일시트 가져옴 -->
+        <link rel="stylesheet" href="css/codingBooster.css">
+    </head>
+
+    
+    <body>
+        <!-- 스타일 시트(CSS) - 자신이 작성하고 있는 html문서의 디자인을 꾸미고자 할 때 작성 -->
+        <!-- test/css가 css요소를 작성하겠다는 뜻 -->
+        <!-- CSS 샵 “#”과 마침표 “.”의 차이는 class와 id 속성 차이 -->
+        <!-- 클래스와 아이디의 차이점은 클래스는 여러개를 사용할 수 있지만 
+            아이디는 고유성을 가지므로 한 문서에 한번만 사용할 수 있습니다. 
+            id,class의 이름은 자유롭게 지으면 되지만 숫자로 시작해선 안됨-->
+        <style type="text/css">
+            .jumbotron{
+                /* background-image: url('images/lala.jpg'); <-왜 이거는 안되는지 모르겟음*/
+                background-image: url('http://img.khan.co.kr/news/2018/04/19/l_2018042001002453300196681.jpg');                
+                /* 배경 이미지가 작다면 size를 이용하여 맞춰줄 수 있음, 100%과 cover는 동일한 의미인듯 */
+                /* background-size: cover; */
+                /* background-size: 100%; */
+                /* em은 픽셀처럼 한 단위 */
+                text-shadow: black 0.2em 0.2em 0.2em;
+                color: white;
+                /* margin은 마진 주는거 */
+                margin-top: 15px;
+            }
+            .btn-lg{
+                background-color: coral;
+            }
+            .container{
+                padding: 10px;
+            }
+
+            .tutocolor{
+                color: blue;
+            }
+
+            /* .leftdiv { 
+                 float: left; 
+            } 
+            .middlediv { 
+                float: left; 
+                background-color:gray 
+            } 
+            .rightdiv { 
+                float: left; 
+            } 
+            div{ 
+                padding : 1%; 
+                color: white; 
+                background-color: 009900; 
+                width: 30%; 
+                border: solid black; 
+            }  */
+
+        </style>
+
+
+        <!-- 아래 예제는 부트스트랩3 버전이어서 잘 작동 안함 https://getbootstrap.com/docs/4.1/components/navbar/#supported-content 이게 부트스트랩4 버전 -->
+        <!-- 네비게이션바 (네브바) - 홈페이지의 전체적인 구성을 보여줌 일반적으로. 또 다른 페이지로도 이동할때 사용 -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" 
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <!-- <span class="sr-only"></span> -->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">코딩부스터</a>
+                </div>
+                <!-- 여기 아래부터 페이지로 이동하도록 링크걸어주는?? -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!-- ul은 링크들의 리스트를 담을 수 있다 
+                    ol태그는 ordered list로 순서가 있는 목록
+                    ul태그는 unordered list로 순서가 필요 없는 목록
+                    dl태그는 definition list로 사전처럼 용어를 설명하는 목록 
+                    ol과 ul의 각 항목들을 나열할 때는 li(list item의 약자)태그를 사용
+                    더 자세한 건 https://aboooks.tistory.com/210 여기 참고-->
+                    <ul class="nav navbar-nav">
+                        <!-- active는 현재 선택이 되어있다는 뜻 -->
+                        <li class="active">
+                            <a href="#">소개
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- 네비게이션바 (네브바) - 홈페이지의 전체적인 구성을 보여줌 일반적으로. 또 다른 페이지로도 이동할때 사용 -->
+        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> -->
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- 여기 아래부터 페이지로 이동하도록 링크걸어주는?? -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                    <!-- ul은 링크들의 리스트를 담을 수 있다 
+                    ol태그는 ordered list로 순서가 있는 목록
+                    ul태그는 unordered list로 순서가 필요 없는 목록
+                    dl태그는 definition list로 사전처럼 용어를 설명하는 목록 
+                    ol과 ul의 각 항목들을 나열할 때는 li(list item의 약자)태그를 사용
+                    더 자세한 건 https://aboooks.tistory.com/210 여기 참고-->
+
+                  <ul class="navbar-nav">
+                      <!-- active는 현재 선택이 되어있다는 뜻 -->
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">소개</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">강사진</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li> 
+
+                  </ul>
+                </div>  
+                <!-- <button type="submit" ~ 이란 이 번튼을 눌렀을때 폼태그에 저장된 내용들이 서버로 보내진다는 말 -->
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+        </nav>
+
+        <!-- 공홈에 있는 네비바 -->
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+        <nav class="navbar navbar-expand-lg navbar-default">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                  <!-- <button type="submit" ~ 이란 이 번튼을 눌렀을때 폼태그에 저장된 내용들이 서버로 보내진다는 말 -->
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+
+
+
+
+
+
+              
+
+
+
+
+
+
+
+
+
+        <!-- https://mainia.tistory.com/3289
+                ㄴ>HTML div, span 태그 사용법과 차이  -->
+        
+        <!-- <div>태그는 Division의 약자로, 레이아웃을 나누는데 주로 쓰입니다.
+        다른 태그와 다르게 특별한 기능을 갖고 있지는 않고, 가상의 레이아웃을 설계하는데 쓰이며, 
+        주로 CSS와 연동하여 쓰입니다. 
+        html에서 웹 페이지의 내용(텍스트, 이미지, 머리글 등)을 구분하는데 사용됩니다.
+        div 태그안에 컨테이너 태그로 두개 이상의 html 요소를 넣을 수 있으며 
+        함께 그룹화하여 css를 적용할 수 있습니다.
+        예제는 하단 -->
+        <div style="background-color:rgb(113, 129, 129)">구역1</div>
+        <div style="width:100px; height:100px; background-color:#CF0">구역2</div>
+        
+        <!-- 아래의 예제는
+        https://yeolco.tistory.com/145 여기꺼 -->
+        <!-- <div class="leftdiv"> 
+            <h1>열코1</h1> 
+            <p>열코의 프로그래밍 일기</p> 
+        </div> 
+        
+        <div class="middlediv"> 
+            <h1>열코2</h1> 
+            <p>열코의 프로그래밍 일기</p> 
+        </div> 
+        
+        <div class="rightdiv"> 
+            <h1>열코3</h1> 
+            <p>열코의 프로그래밍 일기</p> 
+        </div>  -->
+       
+
+
+        <!-- 컨테이너는 어떠한 내용이 담기는 공간 -->
+        <div class="container">
+            <div class="jumbotron">
+                <!-- h1은 큰 글씨를 작성할때 사용 -->
+                <!-- text-center는 부트스트랩안에서 가운데 정렬을 해주는 하나의 클래스라고 할 수 있음 -->
+                <h1 class="text-center tutocolor">ㅋ코딩부스터를 소개합니다.</h1>
+                <!-- p라는 태그는 하나의 문장,문단을 표현할때 사용하는 태그 -->
+                <p class="text-center">코딩부스터는 IT교육 사이트입니다. 다양한 IT관련 무료 및 유료 강의가 존재합니다.</p>
+                <!-- a 태그는 어떠한 주소나 다른 링크로 이동할 수 있도록 만들어주는 앵커라는 뜻을 가진 태그 -->
+                <!-- href에 #은 아직 어디로 이동할지 정해지지 않았다고 알리는 것 -->
+                <!-- role에 버튼을 넣어서 버튼임을 알려줌? -->
+                <p class="text-center"><a class="btn btn-primary btn-lg" href="#" role="button">강의 들으러 가기</a></p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="container">
+        <hr>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label>댓글: </label>
+                    <textarea class="form-control" rows="5" id="commentContent" name="commentContent"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-right">등록</button>
+                </div>
+            </form>
+        <hr>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer style="background-color: #2e2bdf73; color: #ffffff">
+            <div class="container">
+                <br>
+                <div class="row">
+                    <div class="col-sm-2" style="text-align:center">
+                        <h5>Copyright&copy;2017</h5> 
+                        <h5>이유림</h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>대표자 소개</h4>
+                        <p>저는 코딩부스터의 대표 이유림입ㄴ디ㅏ. 시발 존나 하기 싫다 웹개발하는중이며 존나 모르겠다 진짜루</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 style="text-align:center;">네비게이션</h4>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">소개</a>
+                            <a href="#" class="list-group-item">강사진</a>
+                            <a href="#" class="list-group-item">강의</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                            <h4 style="text-align:center;">SNS</h4>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">페이스북</a>
+                                <a href="#" class="list-group-item">유튜브</a>
+                                <a href="#" class="list-group-item">네이버</a>
+                            </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <!-- <h4 style="text-align:center;"><i class="fas fa-bookmark"></i>&nbsp;by 이유림</h4> -->
+                        <!-- <h4 style="text-align:center;"><i class="fas fa-user"></i>&nbsp;by 이유림</h4> -->
+                        <h4 style="text-align:center;"><i class="fas fa-thumbs-up"></i>&nbsp;by 이유림</h4>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 아이콘 -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
